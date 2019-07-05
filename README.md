@@ -1,10 +1,19 @@
 # A Laravel Nova XLS &amp; CSV importer
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/emiliogrv/nova-batch-load.svg?style=flat-square)](https://packagist.org/packages/emiliogrv/nova-batch-load)
+[![Total Downloads](https://img.shields.io/packagist/dt/emiliogrv/nova-batch-load.svg?style=flat-square)](https://packagist.org/packages/emiliogrv/nova-batch-load)
+
 ## Description
 
 This Package allow you to create many new entries at once, loading a file from creating resource screen.
 
 Validation, fields and creating events are same that you declared into yours Resource's fields function.
+
+## Install
+
+```
+composer require emiliogrv/nova-batch-load
+```
 
 ## Usage
 
@@ -28,6 +37,18 @@ public function fields(Request $request)
         // ...
     ];
 }
+```
+
+## i18n
+
+To translate add this to your `resources/lang/vendor/nova/xx.json`
+
+```json
+    "File empty!": "Archivo vacío",
+    "Load per file": "Carga por archivo",
+    "Manual loading": "Carga manual",
+    "Upload file": "Subir archivo",
+    "Upload file & Add Another": "Subir archivo y Añadir Otro"
 ```
 
 ## API
