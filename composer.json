@@ -1,0 +1,40 @@
+{
+    "name": "emiliogrv/nova-batch-load",
+    "description": "A Laravel Nova XLS & CSV importer",
+    "authors": [
+        {
+            "name": "Emilio Romero",
+            "email": "emilio.romero1989@gmail.com"
+        }
+    ],
+    "keywords": [
+        "laravel",
+        "nova",
+        "import",
+        "csv",
+        "xls",
+        "xlsx",
+        "excel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Emiliogrv\\NovaBatchLoad\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Emiliogrv\\NovaBatchLoad\\BatchLoadServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
