@@ -118,6 +118,10 @@ export default {
       }
     },
 
+    ignoreAttribute(attribute) {
+      return new RegExp(this.field.ignoreAttributes).test(attribute)
+    },
+
     keepField(field) {
       return new RegExp(this.field.keepOriginalFields).test(field)
     },
@@ -145,7 +149,11 @@ export default {
       )
 
       fields
-        .filter(field => field.component !== 'batch-load-field')
+        .filter(
+          field =>
+            field.component !== 'batch-load-field' &&
+            !this.ignoreAttribute(field.attribute)
+        )
         .forEach(field => {
           if (!this.keepField(field.component)) {
             field.component = 'select-field'

@@ -56,6 +56,17 @@ class BatchLoadField extends Field
     }
 
     /**
+     * Set attribute names that will be ignored and will not appear.
+     *
+     * @param  string  $ignore
+     * @return $this
+     */
+    public function ignoreAttributes(string $ignore)
+    {
+        return $this->withMeta(['ignoreAttributes' => $ignore]);
+    }
+
+    /**
      * Set which fields keep as original Nova format and options.
      *
      * @param  string  $keep
