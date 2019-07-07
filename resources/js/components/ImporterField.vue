@@ -119,11 +119,17 @@ export default {
     },
 
     ignoreAttribute(attribute) {
-      return new RegExp(this.field.ignoreAttributes).test(attribute)
+      return new RegExp(this.field.ignoreAttributes || null).test(attribute)
     },
 
     keepField(field) {
-      return new RegExp(this.field.keepOriginalFields).test(field)
+      if (this.field.withoutOriginalFields) {
+        return false
+      }
+
+      return new RegExp(this.field.keepOriginalFields || 'belongs|morph').test(
+        field
+      )
     },
 
     /**
@@ -232,4 +238,3 @@ export default {
   }
 }
 </script>
-

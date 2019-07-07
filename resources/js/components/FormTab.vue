@@ -40,8 +40,7 @@ export default {
   props: ['field', 'resourceName'],
 
   data() {
-    return { tabActive: this.field.defaultTabActive }
+    return { tabActive: this.field.defaultTabActive || 0 }
   }
 }
 </script>
-

@@ -7,7 +7,7 @@ mix.setPublicPath('dist')
             alias: {
                 '@nova': path.resolve(
                     __dirname,
-                    '../../vendor/laravel/nova/resources/js'
+                    '../../laravel/nova/resources/js'
                 )
             }
         }

@@ -28,9 +28,6 @@ class BatchLoadField extends Field
         $this->showOnIndex = false;
         $this->showOnDetail = false;
         $this->showOnUpdate = false;
-
-        $this->defaultTabActive(0);
-        $this->keepOriginalFields('belongs|morph');
     }
 
     /**
@@ -75,5 +72,15 @@ class BatchLoadField extends Field
     public function keepOriginalFields(string $keep)
     {
         return $this->withMeta(['keepOriginalFields' => $keep]);
+    }
+
+    /**
+     * Do not show original fields.
+     *
+     * @return $this
+     */
+    public function withoutOriginalFields()
+    {
+        return $this->withMeta(['withoutOriginalFields' => true]);
     }
 }
