@@ -59,13 +59,15 @@ To translate add this to your `resources/lang/vendor/nova/xx.json`
 | `accept`                | `String`  | `.xlsx, .xls, .csv` | Set the accepted file formats by extensions.                  |
 | `defaultTabActive`      | `Integer` | `0`                 | Set the tab default when the component is mounted.            |
 | `ignoreAttributes`      | `String`  |                     | Set attribute names that will be ignored and will not appear. |
-| `keepOriginalFields`    | `String`  | `belongs|morph`     | Set which fields keep as original Nova format and options.    |
-| `withoutOriginalFields` |           |                     | Do not show original fields.                                  |
+| `keepOriginalFields`    | `String`  | `belongs\|morph`    | Set which fields keep as original Nova format and options.    |
+| `withoutOriginalFields` |           |                     | Do not show any original fields.                              |
 
 ## Screenshots
 
 ![Screenshot from 2019-07-05 15 12 44](https://user-images.githubusercontent.com/13983577/60739532-a82cbd00-9f38-11e9-90bf-879d112a7669.png)
+
 ![Screenshot from 2019-07-05 15 13 12](https://user-images.githubusercontent.com/13983577/60739533-a82cbd00-9f38-11e9-8580-e007f37001be.png)
+
 ![Screenshot from 2019-07-05 15 13 56](https://user-images.githubusercontent.com/13983577/60739534-a82cbd00-9f38-11e9-9625-276ce2799ce7.png)
 
 ## Contributing
