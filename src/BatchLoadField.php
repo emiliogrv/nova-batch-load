@@ -16,12 +16,9 @@ class BatchLoadField extends Field
     /**
      * Create a new field.
      *
-     * @param  string  $name
-     * @param  string|callable|null  $attribute
-     * @param  callable|null  $resolveCallback
      * @return void
      */
-    public function __construct($name = null, $attribute = null, callable $resolveCallback = null)
+    public function __construct()
     {
         parent::__construct(str_random());
 

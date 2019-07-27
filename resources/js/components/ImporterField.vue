@@ -91,7 +91,6 @@ export default {
       value: null
     },
     fileData: [],
-    fields: [],
     selectOptions: []
   }),
 
@@ -137,11 +136,12 @@ export default {
      */
     async getFields() {
       this.loading = true
+      this.panels = []
       this.fields = []
       this.fileData = []
       this.selectOptions = []
 
-      const { data: fields } = await Nova.request().get(
+      const { data } = await Nova.request().get(
         `/nova-api/${this.resourceName}/creation-fields`,
         {
           params: {
@@ -153,6 +153,8 @@ export default {
           }
         }
       )
+
+      const fields = data.fields || data
 
       fields
         .filter(
@@ -169,6 +171,7 @@ export default {
           this.fields.push(field)
         })
 
+      this.panels = data.panels || []
       this.loading = false
     },
 

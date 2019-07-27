@@ -17,13 +17,25 @@ export default {
 
   props: ['resourceName', 'resourceId', 'field'],
 
+  data: () => ({
+    h1: null
+  }),
+
   mounted() {
+    this.h1 = document.getElementsByTagName('h1')[0]
+
     this.$nextTick(this.init)
+  },
+
+  beforeDestroy() {
+    this.h1.parentNode.removeChild(this.h1)
   },
 
   methods: {
     init() {
-      if (!document.getElementById('field-wrapper')) {
+      const wrapper = document.getElementById('field-wrapper')
+
+      if (!wrapper) {
         const batchField = document.getElementById(this.field.attribute)
 
         const form = document.getElementsByTagName('form')[0]
@@ -31,20 +43,27 @@ export default {
 
         parentForm.setAttribute('id', 'field-wrapper')
 
-        form.removeChild(batchField.parentNode)
+        batchField.parentNode.removeChild(batchField)
 
         parentForm.removeChild(form)
 
         this.$nextTick(() => {
-          document
-            .getElementById('field-wrapper')
-            .appendChild(batchField.parentNode)
+          parentForm.appendChild(batchField)
 
-          this.$nextTick(() =>
+          this.$nextTick(() => {
             document.getElementById('form-wrapper').appendChild(form)
-          )
+
+            this.$nextTick(() => {
+              form.firstChild.className = ''
+              form.lastChild.className = 'bg-30 flex items-center px-8 py-4'
+
+              parentForm.parentNode.prepend(this.h1)
+            })
+          })
         })
       } else {
+        wrapper.parentNode.removeChild(wrapper)
+
         location.reload()
       }
     }
