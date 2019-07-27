@@ -141,6 +141,8 @@ export default {
       this.fileData = []
       this.selectOptions = []
 
+      this.initVia()
+
       const { data } = await Nova.request().get(
         `/nova-api/${this.resourceName}/creation-fields`,
         {
@@ -237,6 +239,22 @@ export default {
         formData.append('viaResourceId', this.viaResourceId)
         formData.append('viaRelationship', this.viaRelationship)
       })
+    },
+
+    initVia() {
+      this.viaResource = this.reduce(this, '$route.query.viaResource')
+      this.viaResourceId = this.reduce(this, '$route.query.viaResourceId')
+      this.viaRelationship = this.reduce(this, '$route.query.viaRelationship')
+    },
+
+    reduce(source, string = '') {
+      return string
+        .split('.')
+        .reduce(
+          (previous, current) =>
+            typeof previous === 'object' ? previous[current] : previous,
+          source
+        )
     }
   }
 }
