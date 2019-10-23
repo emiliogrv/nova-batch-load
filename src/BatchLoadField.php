@@ -20,7 +20,8 @@ class BatchLoadField extends Field
      */
     public function __construct()
     {
-        parent::__construct(str_random());
+        $name = Str::random();
+        parent::__construct($name);
 
         $this->showOnIndex = false;
         $this->showOnDetail = false;
