@@ -2,6 +2,7 @@
 
 namespace Emiliogrv\NovaBatchLoad;
 
+use Illuminate\Support\Str;
 use Laravel\Nova\Fields\Field;
 
 class BatchLoadField extends Field
@@ -20,8 +21,7 @@ class BatchLoadField extends Field
      */
     public function __construct()
     {
-        $name = Str::random();
-        parent::__construct($name);
+        parent::__construct(Str::random());
 
         $this->showOnIndex = false;
         $this->showOnDetail = false;
